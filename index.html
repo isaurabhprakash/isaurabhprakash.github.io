@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saurabh Prakash</title>
+    <title>Saurabh Prakash - Resume</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
     
     <style>
@@ -68,7 +68,7 @@
 
         .bottom-right a.selected::before {
             content: "> ";
-            color: #00ff00; /* Color for the arrow on the selected link */
+            color: #ffffff; /* Color for the arrow on the selected link */
             display: inline;
             margin-right: 5px; /* Adjust the distance between the arrow and the link text */
         }
@@ -78,8 +78,16 @@
         #connect-page {
             display: none;
             color: #ffffff;
-            font-size: 18px;
+            font-size: 25px;
             margin-top: 20px;
+        }
+
+        #resume-content {
+            text-align: justify;
+        }
+
+        #resume-content h1, h6 {
+            text-align: center;
         }
 
         @keyframes blink {
@@ -105,20 +113,86 @@
         </div>
 
         <div id="about-page">
-            <h2>About Me</h2>
-            <p>
-                Welcome to my terminal-like website! I'm Saurabh Prakash, a passionate software developer.
-                This is a simple showcase of a terminal interface with interactive links. Feel free to explore
-                and connect with me!
-            </p>
+            <h1>Hello and Welcome!</h1>
+                
+            <p>I am Saurabh Prakash, a Computer Science graduate with a BTech degree from VTU. Currently, I serve as an Associate Staff Engineer at Tally Solutions Pvt. Ltd., based in Bangalore.</p>
+    
+            <p>My professional journey is fueled by passion and curiosity. Beyond the realms of work, I cherish meaningful moments spent with my family and close friends.</p>
+    
+            <p>In my leisure time, you'll find me immersed in the world of movies, documentaries, and literature. While my reading preferences often lean towards non-fiction, I've recently delved into the enchanting realm of fiction.</p>
+    
+            <p>Another facet of my life is the love for travel and exploration. I believe that each journey, besides providing joy, should also offer fresh perspectives and insights.</p>
+
+            <p>You can find more about my professional journey by going to my Resume. If you want to connect, make sure to see the Connect page.</p>
         </div>
 
         <div id="resume-page">
-            <h2>My Resume</h2>
-            <p>
-                Here you can find details about my education, work experience, and skills. For a detailed
-                resume, please feel free to contact me.
-            </p>
+            <div id="resume-content">
+                                <!-- Inside the <div id="resume-content"> -->
+                <h1>Saurabh Prakash</h1>
+                <p style = "text-align: center;">Bengaluru. +91-9686608315. saurabhprakash25@outlook.com. linkedin.com/saurabhprakash-25. github.com/isaurabhprakash</p>
+                                
+                <h2>Summary</h2>
+                <p>Experienced developer with a thirst for knowledge and a love of problem-solving. Consistently recognized for delivering high-quality code on time and on budget. Worked on creating an Object-Oriented Database for premise systems. Delivered multiple projects as a core developer of the team.</p>
+                                
+                <h2>Key Skills</h2>
+                <p>C++ | OOPS | Design Thinking | Git | OODB | Mentoring | Debugging | Unit Testing | Project Planning</p>
+                                
+                <h2>Experience</h2>
+                                
+                <h3>Associate Staff Engineer</h3>
+                <p>Tally Solutions Pvt. Ltd. | Oct 2022 - Present</p>
+                <ul>
+                    <li>Lead developer in the flagship GST Release of the product.</li>
+                    <li>Mentored and led other team members working in different areas of the project.</li>
+                    <li>Rewrote an in-house Object Oriented Database from scratch to meet new business needs.</li>
+                </ul>
+
+                <h3>Senior Software Development Engineer</h3>
+                <p>Tally Solutions Pvt. Ltd. | Apr 2021 - Oct 2022</p>
+                <ul>
+                    <li>Owned a module enabling the history of transactions to be maintained with interaction data with 3rd party data, reconciliation, etc.</li>
+                    <li>Improved the speed of the overall database system by implementing partial read-and-write optimization.</li>
+                    <li>Participated in making UI Reports faster by implementing on-disk structures for data retrieval.</li>
+                </ul>
+
+                <h3>Software Development Engineer - II</h3>
+                <p>Tally Solutions Pvt. Ltd. | Apr 2020 - Mar 2021</p>
+                <ul>
+                    <li>Designed, coded, and implemented an entire component based on the hub & spoke model for data exchange over a distributed LAN.</li>
+                    <li>Improved the concurrency of the filesystem by implementing a Range-Tree based file indexing system.</li>
+                    <li>Set up CPPUnit for Unit Testing the filesystem.</li>
+                </ul>
+
+                <h3>Software Development Engineer - I</h3>
+                <p>Tally Solutions Pvt. Ltd. | Jul 2018 - Mar 2020</p>
+                <ul>
+                    <li>Made the in-house file system (an OODB) the only component in the organization with 100% unit test coverage.</li>
+                    <li>Made the file system concurrent by implementing a Range-Tree based file indexing system.</li>
+                    <li>Acted as a core member of the TURFF team and participated in conducting various fun activities throughout the organization.</li>
+                </ul>
+
+                <h2>Education</h2>
+                <p>B.E, Computer Science and Engineering | Sir M. Visvesvaraya Institute of Technology, Bengaluru | 2014 - 2018 | Aggr: 78%</p>
+
+                <p>Computer AISSCE (Class XII), PCM | Bijendra Public School, Purnea | 2012 - 2014 | Percentage: 89%</p>
+
+                <h2>Recognitions</h2>
+                <p>Start of the Quarter (AMJ 2022)</p>
+                <p>Super Coder (2021 - 2022)</p>
+                <p>Rookie of the Year (2019-2020)</p>
+                <p>Turficate of appreciation (2019-2020)</p>
+
+                <h2>Extra-Curricular Activities</h2>
+                <ul>
+                    <li>Trained the batch of 2022 in Object Oriented Database.</li>
+                    <li>Trained the batch of 2020 in C++, Data Structures, and Algorithms.</li>
+                    <li>Created a diagnostic tool used across the organization.</li>
+                    <li>Mentored several Software Engineering Interns on different projects.</li>
+                    <li>Core member of the team that conducted the first nationwide hackathon by the organization.</li>
+                </ul>
+
+            </div>
         </div>
 
         <div id="connect-page">
@@ -126,11 +200,13 @@
             <p>
                 Let's connect! You can reach out to me through the following channels:
                 <br>
-                Email: saurabh@example.com
+                Email: isaurabhprakash@gmail.com
                 <br>
-                LinkedIn: linkedin.com/in/saurabhprakash
+                LinkedIn: linkedin.com/in/saurabhprakash-25/
                 <br>
-                Twitter: @saurabh_dev
+                Twitter: twitter.com/isaurabhprakash
+                <br>
+                Github: github.com/isaurabhprakash
             </p>
         </div>
     </div>
