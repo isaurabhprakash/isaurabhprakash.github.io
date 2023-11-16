@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saurabh Prakash</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
+    
+    <style>
+        body {
+            background: #000000; /* Set background color */
+            color: #ffffff;
+            font-family: 'VT323', monospace;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #terminal {
+            border: 2px solid #888;
+            padding: 8px;
+            width: 95%;
+            height: 95%;
+            overflow: auto;
+            position: relative;
+            background-color: transparent; /* Make the terminal background transparent */
+        }
+
+        input {
+            background-color: transparent;
+            border: none;
+            color: #ffffff;
+            width: calc(100% - 2ch);
+            outline: none;
+        }
+
+        #output {
+            margin-top: 10px;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            font-size: 70px;
+            animation: blink 1s 2;
+        }
+
+        .bottom-right {
+            position: absolute;
+            bottom: 40px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            font-size: 30px;
+        }
+
+        .bottom-right a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .bottom-right a.selected::before {
+            content: "> ";
+            color: #00ff00; /* Color for the arrow on the selected link */
+            display: inline;
+            margin-right: 5px; /* Adjust the distance between the arrow and the link text */
+        }
+
+        #about-page,
+        #resume-page,
+        #connect-page {
+            display: none;
+            color: #ffffff;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <div class="top-left">
+            Saurabh Prakash
+            <div style="font-size: 40px; margin-top: 5px;">Software Developer</div>
+        </div>
+        <div class="command-prompt"><input type="text" id="commandInput" autocomplete="off"></div>
+        <div id="output"></div>
+        
+        <div class="bottom-right">
+            <a href="#about" class="about-link selected">ABOUT</a>
+            <a href="#resume" class="resume-link">RESUME</a>
+            <a href="#connect" class="connect-link">CONNECT</a>
+        </div>
+
+        <div id="about-page">
+            <h2>About Me</h2>
+            <p>
+                Welcome to my terminal-like website! I'm Saurabh Prakash, a passionate software developer.
+                This is a simple showcase of a terminal interface with interactive links. Feel free to explore
+                and connect with me!
+            </p>
+        </div>
+
+        <div id="resume-page">
+            <h2>My Resume</h2>
+            <p>
+                Here you can find details about my education, work experience, and skills. For a detailed
+                resume, please feel free to contact me.
+            </p>
+        </div>
+
+        <div id="connect-page">
+            <h2>Connect with Me</h2>
+            <p>
+                Let's connect! You can reach out to me through the following channels:
+                <br>
+                Email: saurabh@example.com
+                <br>
+                LinkedIn: linkedin.com/in/saurabhprakash
+                <br>
+                Twitter: @saurabh_dev
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const commandInput = document.getElementById('commandInput');
+        const links = document.querySelectorAll('.bottom-right a');
+        const aboutPage = document.getElementById('about-page');
+        const resumePage = document.getElementById('resume-page');
+        const connectPage = document.getElementById('connect-page');
+        const saurabhPrakash = document.querySelector('.top-left');
+
+        let selectedLinkIndex = 0;
+        let pageStack = ['#about']; // Initialize with the "ABOUT" page
+
+        // Initialize with the "ABOUT" link selected
+        links[selectedLinkIndex].classList.add('selected');
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                selectNextLink();
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                selectPreviousLink();
+            } else if (event.key === 'Enter') {
+                event.preventDefault();
+                openSelectedLink();
+            } else if (event.key === 'Escape') {
+                event.preventDefault();
+                goBack();
+            }
+        });
+
+        function selectNextLink() {
+            links[selectedLinkIndex].classList.remove('selected');
+            selectedLinkIndex = (selectedLinkIndex + 1) % links.length;
+            links[selectedLinkIndex].classList.add('selected');
+        }
+
+        function selectPreviousLink() {
+            links[selectedLinkIndex].classList.remove('selected');
+            selectedLinkIndex = (selectedLinkIndex - 1 + links.length) % links.length;
+            links[selectedLinkIndex].classList.add('selected');
+        }
+
+        function openSelectedLink() {
+            const selectedLink = links[selectedLinkIndex];
+            const href = selectedLink.getAttribute('href');
+
+            // Toggle the visibility of "Saurabh Prakash" based on the selected link
+            saurabhPrakash.style.display = href === '#about' || href === '#resume' || href === '#connect' ? 'none' : 'block';
+
+            // Display or hide the about, resume, and connect pages based on the selected link
+            aboutPage.style.display = href === '#about' ? 'block' : 'none';
+            resumePage.style.display = href === '#resume' ? 'block' : 'none';
+            connectPage.style.display = href === '#connect' ? 'block' : 'none';
+
+            // Check if the selected link is the same as the current page
+            if (pageStack[pageStack.length - 1] !== href) {
+                // Add the current page to the stack
+                pageStack.push(href);
+            }
+        }
+
+        function goBack() {
+            // Check if the current page is the About page
+            if (pageStack[pageStack.length - 1] === '#about') {
+                // Do nothing if the current page is the About page
+                return;
+            }
+
+            // Remove the last page from the stack
+            pageStack.pop();
+
+            // Get the current page from the stack
+            const currentPage = pageStack[pageStack.length - 1];
+
+            // Set the selected link based on the current page
+            links[selectedLinkIndex].classList.remove('selected');
+            selectedLinkIndex = Array.from(links).findIndex(link => link.getAttribute('href') === currentPage);
+            links[selectedLinkIndex].classList.add('selected');
+
+            // Show or hide pages based on the stack
+            aboutPage.style.display = currentPage === '#about' ? 'block' : 'none';
+            resumePage.style.display = currentPage === '#resume' ? 'block' : 'none';
+            connectPage.style.display = currentPage === '#connect' ? 'block' : 'none';
+
+            // Toggle the visibility of "Saurabh Prakash" based on the current page
+            saurabhPrakash.style.display = currentPage === '#about' || currentPage === '#resume' || currentPage === '#connect' ? 'none' : 'block';
+
+            console.log(`Going back to page: ${currentPage}`);
+            console.log(`Page stack: ${pageStack}`);
+        }
+    </script>
+</body>
+</html>
