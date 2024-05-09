@@ -1,306 +1,72 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saurabh Prakash - Resume</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
-    
-    <style>
-        body {
-            background: #000000; /* Set background color */
-            color: #ffffff;
-            font-family: 'VT323', monospace;
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+	<head>
+		<title>Saurabh Prakash</title>
+		<link rel="stylesheet" href="css/stylesheet.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css">
+		<!-- Awesome Fonts -->
+		<link rel="stylesheet" href="resources/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="shortcut icon" href="resources/images/favicon.png" >
+		<!-- Https Verification -->
+		<meta name="google-site-verification" content="g4p1djSa_5ePL1zG0nIjSeaMPJ268z9iqQ5UAUhdlH4" />
+		<!-- Redirect to mobile -->
+		<script type="text/javascript">
+			if (screen.width <= 800) {
+  					window.location = "https://saurabhprakash-25.github.io/mobile";
+			}
+		</script>
+		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("h1").addClass("animated bounceInUp");
+			});
+		</script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#menu").click(function()
+				{
+					$("h1").addClass("animated bounceInUp");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="sidebar">
+		<img src="resources/images/welcome.png" style="width: 250px;height: 250px"/>
+		<ul>
+			<li id="menu"><a href="index.html">. welcome</a></li>
+			<li id="menu"><a href="resume.html">. resume</a></li>
+			<!---<li id="menu"><a href="projects.html">. projects</a></li>-->
+			<li id="menu"><a href="contact.html">. contact</a></li>
+		</ul>	
+		</div>
+	<div class="content">
+		<h1>saurabh prakash</h1>
 
-        #terminal {
-            border: 2px solid #888;
-            padding: 8px;
-            width: 95%;
-            height: 95%;
-            overflow: auto;
-            position: relative;
-            background-color: transparent; /* Make the terminal background transparent */
-        }
+		<p id="quote">"Here I stand, atoms with consciousness, matter with curiosity. A universe of atoms, an atom in the universe."</p>
+		<p id="bodytext" style="text-align:right;padding-right: 2% ">-Richard Feynman</p>
+		<div class="mainbody">
+			<p id="bodytext" align="justify">
+				Life’s an ongoing journey. A discovery that never comes to an end. Thus one can never know himself completely. Same is true for me.<br/><br/>
 
-        input {
-            background-color: transparent;
-            border: none;
-            color: #ffffff;
-            width: calc(100% - 2ch);
-            outline: none;
-        }
+				Here's what I know about myself. I'm a Software Developer. Physics interests me like nothing else. Quantum Mechanics is supercool. Coding is fun. Movies are art. Reading is pleasure. <br/><br/>
 
-        #output {
-            margin-top: 10px;
-        }
+				Like everyone, I get inspired by a lot of people. And these people have taught me to do my work with utmost sincerity once I’ve taken the responsibility.<br/><br/>
 
-        .top-left {
-            position: absolute;
-            top: 60px;
-            left: 60px;
-            font-size: 70px;
-            animation: blink 1s 2;
-        }
+				Digital era is good, and I, like many others, like social networking. Below are the links of my social networking profiles. Feel free to stalk and contact.<br/><br/>
 
-        .bottom-right {
-            position: absolute;
-            bottom: 40px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            font-size: 30px;
-        }
+			
+			</p>
+			<a href="https://github.com/saurabhprakash-25" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+			<a href="https://www.linkedin.com/in/saurabhprakash-25" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true" style="margin-left: 2%"></i></a>
+			<a href="https://www.facebook.com/spiamcool" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true" style="margin-left: 2%"></i></a>
+			<a href="https://www.instagram.com/saurabhprakash_25/" target="_blank"><i class="fa fa-instagram" aria-hidden="true" style="margin-left: 2%"></i></a>
+			<a href="https://twitter.com/saurabh_rishu" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true" style="margin-left: 2%"></i></a>
+		</div>
+	</div>
 
-        .bottom-right a {
-            color: #ffffff;
-            text-decoration: none;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
 
-        .bottom-right a.selected::before {
-            content: "> ";
-            color: #ffffff; /* Color for the arrow on the selected link */
-            display: inline;
-            margin-right: 5px; /* Adjust the distance between the arrow and the link text */
-        }
-
-        #about-page,
-        #resume-page,
-        #connect-page {
-            display: none;
-            color: #ffffff;
-            font-size: 25px;
-            margin-top: 20px;
-        }
-
-        #resume-content {
-            text-align: justify;
-        }
-
-        #resume-content h1, h6 {
-            text-align: center;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div id="terminal">
-        <div class="top-left">
-            Saurabh Prakash
-            <div style="font-size: 40px; margin-top: 5px;">Software Developer</div>
-        </div>
-        <div class="command-prompt"><input type="text" id="commandInput" autocomplete="off"></div>
-        <div id="output"></div>
-        
-        <div class="bottom-right">
-            <a href="#about" class="about-link selected">ABOUT</a>
-            <a href="#resume" class="resume-link">RESUME</a>
-            <a href="#connect" class="connect-link">CONNECT</a>
-        </div>
-
-        <div id="about-page">
-            <h1>Hello and Welcome!</h1>
-                
-            <p>I am Saurabh Prakash, a Computer Science graduate with a BTech degree from VTU. Currently, I serve as an Associate Staff Engineer at Tally Solutions Pvt. Ltd., based in Bangalore.</p>
-    
-            <p>My professional journey is fueled by passion and curiosity. Beyond the realms of work, I cherish meaningful moments spent with my family and close friends.</p>
-    
-            <p>In my leisure time, you'll find me immersed in the world of movies, documentaries, and literature. While my reading preferences often lean towards non-fiction, I've recently delved into the enchanting realm of fiction.</p>
-    
-            <p>Another facet of my life is the love for travel and exploration. I believe that each journey, besides providing joy, should also offer fresh perspectives and insights.</p>
-
-            <p>You can find more about my professional journey by going to my Resume. If you want to connect, make sure to see the Connect page.</p>
-        </div>
-
-        <div id="resume-page">
-            <div id="resume-content">
-                                <!-- Inside the <div id="resume-content"> -->
-                <h1>Saurabh Prakash</h1>
-                <p style = "text-align: center;">Bengaluru. +91-9686608315. saurabhprakash25@outlook.com. linkedin.com/saurabhprakash-25. github.com/isaurabhprakash</p>
-                                
-                <h2>Summary</h2>
-                <p>Experienced developer with a thirst for knowledge and a love of problem-solving. Consistently recognized for delivering high-quality code on time and on budget. Worked on creating an Object-Oriented Database for premise systems. Delivered multiple projects as a core developer of the team.</p>
-                                
-                <h2>Key Skills</h2>
-                <p>C++ | OOPS | Design Thinking | Git | OODB | Mentoring | Debugging | Unit Testing | Project Planning</p>
-                                
-                <h2>Experience</h2>
-                                
-                <h3>Associate Staff Engineer</h3>
-                <p>Tally Solutions Pvt. Ltd. | Oct 2022 - Present</p>
-                <ul>
-                    <li>Lead developer in the flagship GST Release of the product.</li>
-                    <li>Mentored and led other team members working in different areas of the project.</li>
-                    <li>Rewrote an in-house Object Oriented Database from scratch to meet new business needs.</li>
-                </ul>
-
-                <h3>Senior Software Development Engineer</h3>
-                <p>Tally Solutions Pvt. Ltd. | Apr 2021 - Oct 2022</p>
-                <ul>
-                    <li>Owned a module enabling the history of transactions to be maintained with interaction data with 3rd party data, reconciliation, etc.</li>
-                    <li>Improved the speed of the overall database system by implementing partial read-and-write optimization.</li>
-                    <li>Participated in making UI Reports faster by implementing on-disk structures for data retrieval.</li>
-                </ul>
-
-                <h3>Software Development Engineer - II</h3>
-                <p>Tally Solutions Pvt. Ltd. | Apr 2020 - Mar 2021</p>
-                <ul>
-                    <li>Designed, coded, and implemented an entire component based on the hub & spoke model for data exchange over a distributed LAN.</li>
-                    <li>Improved the concurrency of the filesystem by implementing a Range-Tree based file indexing system.</li>
-                    <li>Set up CPPUnit for Unit Testing the filesystem.</li>
-                </ul>
-
-                <h3>Software Development Engineer - I</h3>
-                <p>Tally Solutions Pvt. Ltd. | Jul 2018 - Mar 2020</p>
-                <ul>
-                    <li>Made the in-house file system (an OODB) the only component in the organization with 100% unit test coverage.</li>
-                    <li>Made the file system concurrent by implementing a Range-Tree based file indexing system.</li>
-                    <li>Acted as a core member of the TURFF team and participated in conducting various fun activities throughout the organization.</li>
-                </ul>
-
-                <h2>Education</h2>
-                <p>B.E, Computer Science and Engineering | Sir M. Visvesvaraya Institute of Technology, Bengaluru | 2014 - 2018 | Aggr: 78%</p>
-
-                <p>Computer AISSCE (Class XII), PCM | Bijendra Public School, Purnea | 2012 - 2014 | Percentage: 89%</p>
-
-                <h2>Recognitions</h2>
-                <p>Start of the Quarter (AMJ 2022)</p>
-                <p>Super Coder (2021 - 2022)</p>
-                <p>Rookie of the Year (2019-2020)</p>
-                <p>Turficate of appreciation (2019-2020)</p>
-
-                <h2>Extra-Curricular Activities</h2>
-                <ul>
-                    <li>Trained the batch of 2022 in Object Oriented Database.</li>
-                    <li>Trained the batch of 2020 in C++, Data Structures, and Algorithms.</li>
-                    <li>Created a diagnostic tool used across the organization.</li>
-                    <li>Mentored several Software Engineering Interns on different projects.</li>
-                    <li>Core member of the team that conducted the first nationwide hackathon by the organization.</li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div id="connect-page">
-            <h2>Connect with Me</h2>
-            <p>
-                Let's connect! You can reach out to me through the following channels:
-                <br>
-                Email: isaurabhprakash@gmail.com
-                <br>
-                LinkedIn: linkedin.com/in/saurabhprakash-25/
-                <br>
-                Twitter: twitter.com/isaurabhprakash
-                <br>
-                Github: github.com/isaurabhprakash
-            </p>
-        </div>
-    </div>
-
-    <script>
-        const commandInput = document.getElementById('commandInput');
-        const links = document.querySelectorAll('.bottom-right a');
-        const aboutPage = document.getElementById('about-page');
-        const resumePage = document.getElementById('resume-page');
-        const connectPage = document.getElementById('connect-page');
-        const saurabhPrakash = document.querySelector('.top-left');
-
-        let selectedLinkIndex = 0;
-        let pageStack = ['#about']; // Initialize with the "ABOUT" page
-
-        // Initialize with the "ABOUT" link selected
-        links[selectedLinkIndex].classList.add('selected');
-
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'ArrowDown') {
-                event.preventDefault();
-                selectNextLink();
-            } else if (event.key === 'ArrowUp') {
-                event.preventDefault();
-                selectPreviousLink();
-            } else if (event.key === 'Enter') {
-                event.preventDefault();
-                openSelectedLink();
-            } else if (event.key === 'Escape') {
-                event.preventDefault();
-                goBack();
-            }
-        });
-
-        function selectNextLink() {
-            links[selectedLinkIndex].classList.remove('selected');
-            selectedLinkIndex = (selectedLinkIndex + 1) % links.length;
-            links[selectedLinkIndex].classList.add('selected');
-        }
-
-        function selectPreviousLink() {
-            links[selectedLinkIndex].classList.remove('selected');
-            selectedLinkIndex = (selectedLinkIndex - 1 + links.length) % links.length;
-            links[selectedLinkIndex].classList.add('selected');
-        }
-
-        function openSelectedLink() {
-            const selectedLink = links[selectedLinkIndex];
-            const href = selectedLink.getAttribute('href');
-
-            // Toggle the visibility of "Saurabh Prakash" based on the selected link
-            saurabhPrakash.style.display = href === '#about' || href === '#resume' || href === '#connect' ? 'none' : 'block';
-
-            // Display or hide the about, resume, and connect pages based on the selected link
-            aboutPage.style.display = href === '#about' ? 'block' : 'none';
-            resumePage.style.display = href === '#resume' ? 'block' : 'none';
-            connectPage.style.display = href === '#connect' ? 'block' : 'none';
-
-            // Check if the selected link is the same as the current page
-            if (pageStack[pageStack.length - 1] !== href) {
-                // Add the current page to the stack
-                pageStack.push(href);
-            }
-        }
-
-        function goBack() {
-            // Check if the current page is the About page
-            if (pageStack[pageStack.length - 1] === '#about') {
-                // Do nothing if the current page is the About page
-                return;
-            }
-
-            // Remove the last page from the stack
-            pageStack.pop();
-
-            // Get the current page from the stack
-            const currentPage = pageStack[pageStack.length - 1];
-
-            // Set the selected link based on the current page
-            links[selectedLinkIndex].classList.remove('selected');
-            selectedLinkIndex = Array.from(links).findIndex(link => link.getAttribute('href') === currentPage);
-            links[selectedLinkIndex].classList.add('selected');
-
-            // Show or hide pages based on the stack
-            aboutPage.style.display = currentPage === '#about' ? 'block' : 'none';
-            resumePage.style.display = currentPage === '#resume' ? 'block' : 'none';
-            connectPage.style.display = currentPage === '#connect' ? 'block' : 'none';
-
-            // Toggle the visibility of "Saurabh Prakash" based on the current page
-            saurabhPrakash.style.display = currentPage === '#about' || currentPage === '#resume' || currentPage === '#connect' ? 'none' : 'block';
-
-            console.log(`Going back to page: ${currentPage}`);
-            console.log(`Page stack: ${pageStack}`);
-        }
-    </script>
-</body>
+	</body>
 </html>
